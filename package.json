@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build && rm -rf docs && mv build docs",
+    "build": "craco build",
+    "gh-pages": "rm -rf docs && cp -r build docs",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
