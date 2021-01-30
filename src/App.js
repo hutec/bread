@@ -23,13 +23,15 @@ const TartineRecipe = () => {
 };
 
 function App() {
+  const titles = Object.keys(Recipes);
   return (
     <div className="bg-yellow-50 font-serif">
       <header className="bg-yellow-400">
         <nav className="w-7/12 mx-auto">
           <ul className="flex flex-row space-x-6 font-light text-3xl">
-            <li>Bread</li>
-            <li>Pizza</li>
+            {titles.map((title) => (
+              <li key={title}>{title}</li>
+            ))}
           </ul>
         </nav>
       </header>
