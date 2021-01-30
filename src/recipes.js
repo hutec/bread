@@ -1,4 +1,10 @@
 const Recipes = {
+  "Starter Care": {
+    "Day 1, Morning":
+      "Take the starter out of the fridge. Take 10g of the starter and mix with 50g of flour and 50g of water. Let rest covered at room temperature for 8 to 12 hours. Discard the unused rest of the starter or bake into pancakes",
+    "Day 1, Evening":
+      "Put the starter back into the fridge. It will survive there for 7-10 days.",
+  },
   Tartine: {
     steps: {
       "Day 1, Morning":
