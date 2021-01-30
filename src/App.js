@@ -1,8 +1,14 @@
 import "./App.css";
 import Recipes from "./recipes";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink,
+} from "react-router-dom";
 
-const Step = ({ step }) => {
-  const [title, description] = step;
+const Step = ({ title, description }) => {
   return (
     <div className="py-3 border-b-2">
       <h1 className="font-semibold text-xl underline">{title}</h1>
@@ -11,34 +17,46 @@ const Step = ({ step }) => {
   );
 };
 
-const TartineRecipe = () => {
-  const steps = Object.entries(Recipes["Tartine"]["steps"]);
+const RecipeContent = ({ recipe }) => {
+  const steps = recipe.steps;
   return (
     <div>
-      {steps.map((step) => (
-        <Step key={step[0]} step={step} />
+      {Object.entries(steps).map(([title, description]) => (
+        <Step key={title} title={title} description={description} />
       ))}
     </div>
   );
 };
 
 function App() {
-  const titles = Object.keys(Recipes);
+  const recipes = Object.values(Recipes);
   return (
-    <div className="bg-yellow-50 font-serif">
-      <header className="bg-yellow-400">
-        <nav className="w-7/12 mx-auto">
-          <ul className="flex flex-row space-x-6 font-light text-3xl">
-            {titles.map((title) => (
-              <li key={title}>{title}</li>
+    <Router>
+      <div className="bg-yellow-50 font-serif">
+        <header className="bg-yellow-400">
+          <nav className="w-7/12 mx-auto">
+            <ul className="flex flex-row space-x-6 text-3xl">
+              {recipes.map((recipe) => (
+                <li key={recipe.url}>
+                  <NavLink activeClassName="font-bold" to={"/" + recipe.url}>
+                    {recipe.title}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </header>
+        <div className="w-7/12 mx-auto max-w-2xl mt-8">
+          <Switch>
+            {recipes.map((recipe) => (
+              <Route key={recipe.url} path={"/" + recipe.url}>
+                <RecipeContent recipe={recipe} />
+              </Route>
             ))}
-          </ul>
-        </nav>
-      </header>
-      <div className="w-7/12 mx-auto max-w-2xl mt-8">
-        <TartineRecipe />
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

@@ -1,11 +1,17 @@
-const Recipes = {
-  "Starter Care": {
-    "Day 1, Morning":
-      "Take the starter out of the fridge. Take 10g of the starter and mix with 50g of flour and 50g of water. Let rest covered at room temperature for 8 to 12 hours. Discard the unused rest of the starter or bake into pancakes",
-    "Day 1, Evening":
-      "Put the starter back into the fridge. It will survive there for 7-10 days.",
+const Recipes = [
+  {
+    title: "Starter Care",
+    url: "starter_care",
+    steps: {
+      "Day 1, Morning":
+        "Take the starter out of the fridge. Take 10g of the starter and mix with 50g of flour and 50g of water. Let rest covered at room temperature for 8 to 12 hours. Discard the unused rest of the starter or bake into pancakes",
+      "Day 1, Evening":
+        "Put the starter back into the fridge. It will survive there for 7-10 days.",
+    },
   },
-  Tartine: {
+  {
+    title: "Tartine Bread",
+    url: "tartine",
     steps: {
       "Day 1, Morning":
         "Take the starter and feed it as described above (10g Starter, 50g Rye flour, 50g water). Let it rest at room temperature for the day.",
@@ -17,6 +23,6 @@ const Recipes = {
         "I normally bake in a dutch oven. Pre-heating the oven with the dutch-oven inside upto 250°C for 30 minutes. During that time you can let the loaf rest at room temperature, too. Bake the bread at 250°C for 30 minutes with the dutch-oven lid on, and another 15 minutes without the lid.",
     },
   },
-};
+];
 
 export default Recipes;
