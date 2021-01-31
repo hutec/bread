@@ -28,6 +28,7 @@ const Recipes = [
       Salt: 2.3,
       Sourdough: 20,
     },
+    base: 500,
   },
 ];
 

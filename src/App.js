@@ -29,14 +29,23 @@ const RecipeCalculator = ({ recipe }) => {
   }
 
   const ratios = Object.entries(recipe.ratios);
+  const base = recipe.base;
 
   return (
     <div className="border shadow-md rounded-md w-1/2 mx-auto p-2">
       <ul className="table mt-2">
+        <li className="table-row">
+          <td className="border-b"></td>
+          <span className="table-cell border-b">Percentage</span>
+          <span className="table-cell pl-4 border-b">Weight</span>
+        </li>
         {ratios.map(([ingredient, ratio]) => (
           <li key={ingredient} className="table-row">
             <span className="table-cell font-semibold">{ingredient}</span>
-            <span className="table-cell pl-4">{ratio}</span>
+            <span className="table-cell pl-4 text-right">{ratio} %</span>
+            <span className="table-cell pl-4 text-right">
+              {(base * (ratio / 100)).toFixed(0)}g
+            </span>
           </li>
         ))}
       </ul>
