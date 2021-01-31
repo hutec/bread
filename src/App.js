@@ -1,12 +1,7 @@
 import "./App.css";
 import Recipes from "./recipes";
 import React from "react";
-import {
-  HashRouter,
-  Switch,
-  Route,
-  NavLink,
-} from "react-router-dom";
+import { HashRouter, Switch, Route, NavLink } from "react-router-dom";
 
 const Step = ({ title, description }) => {
   return (
@@ -31,7 +26,7 @@ const RecipeContent = ({ recipe }) => {
 function App() {
   const recipes = Object.values(Recipes);
   return (
-    <HashRouter basename="/bread">
+    <HashRouter>
       <div className="bg-yellow-50 font-serif min-h-screen">
         <header className="bg-yellow-400 py-3">
           <nav className="w-7/12 mx-auto">
