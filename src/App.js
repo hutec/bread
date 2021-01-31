@@ -40,7 +40,7 @@ const RecipeCalculator = ({ recipe }) => {
   }
 
   return (
-    <div className="border shadow-md rounded-md w-1/2 mx-auto p-2">
+    <div className="border shadow-md rounded-md w-1/2 min-w-max mx-auto p-2">
       <ul className="table mt-2">
         <li className="table-row">
           <span className="table-cell border-b"></span>
