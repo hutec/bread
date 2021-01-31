@@ -46,7 +46,7 @@ function App() {
             </ul>
           </nav>
         </header>
-        <div className="w-7/12 mx-auto max-w-2xl mt-8">
+        <div className="w-10/12 mx-auto max-w-2xl mt-8">
           <Switch>
             {recipes.map((recipe) => (
               <Route key={recipe.url} path={"/" + recipe.url}>
