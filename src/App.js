@@ -2,7 +2,7 @@ import "./App.css";
 import Recipes from "./recipes";
 import React from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Switch,
   Route,
   NavLink,
@@ -31,7 +31,7 @@ const RecipeContent = ({ recipe }) => {
 function App() {
   const recipes = Object.values(Recipes);
   return (
-    <Router basename="/bread">
+    <HashRouter basename="/bread">
       <div className="bg-yellow-50 font-serif min-h-screen">
         <header className="bg-yellow-400 py-3">
           <nav className="w-7/12 mx-auto">
@@ -56,7 +56,7 @@ function App() {
           </Switch>
         </div>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
