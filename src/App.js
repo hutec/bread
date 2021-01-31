@@ -32,8 +32,8 @@ function App() {
   const recipes = Object.values(Recipes);
   return (
     <Router>
-      <div className="bg-yellow-50 font-serif">
-        <header className="bg-yellow-400">
+      <div className="bg-yellow-50 font-serif min-h-screen">
+        <header className="bg-yellow-400 py-3">
           <nav className="w-7/12 mx-auto">
             <ul className="flex flex-row space-x-6 text-3xl">
               {recipes.map((recipe) => (
