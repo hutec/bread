@@ -31,7 +31,7 @@ const RecipeContent = ({ recipe }) => {
 function App() {
   const recipes = Object.values(Recipes);
   return (
-    <Router>
+    <Router basename="/bread">
       <div className="bg-yellow-50 font-serif min-h-screen">
         <header className="bg-yellow-400 py-3">
           <nav className="w-7/12 mx-auto">
