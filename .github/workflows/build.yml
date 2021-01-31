@@ -2,7 +2,7 @@ name: build and publish
 
 on:
   push:
-    branches: [master, feature/actions]
+    branches: [master]
 
 jobs:
   publish-gh-pages:
