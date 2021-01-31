@@ -23,6 +23,27 @@ const RecipeContent = ({ recipe }) => {
   );
 };
 
+const RecipeCalculator = ({ recipe }) => {
+  if (!recipe.ratios) {
+    return <></>;
+  }
+
+  const ratios = Object.entries(recipe.ratios);
+
+  return (
+    <div className="border shadow-md rounded-md w-1/2 mx-auto p-2">
+      <ul className="table mt-2">
+        {ratios.map(([ingredient, ratio]) => (
+          <li key={ingredient} className="table-row">
+            <span className="table-cell font-semibold">{ingredient}</span>
+            <span className="table-cell pl-4">{ratio}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 function App() {
   const recipes = Object.values(Recipes);
   return (
@@ -45,6 +66,7 @@ function App() {
           <Switch>
             {recipes.map((recipe) => (
               <Route key={recipe.url} path={"/" + recipe.url}>
+                <RecipeCalculator recipe={recipe} />
                 <RecipeContent recipe={recipe} />
               </Route>
             ))}
