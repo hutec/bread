@@ -23,8 +23,16 @@ const RecipeContent = ({ recipe }) => {
   );
 };
 
+const updateRatios = (ratios, ingredient, newRatio, setRatios) => {
+  const newRatios = {
+    ...ratios,
+    [ingredient]: newRatio,
+  };
+  setRatios(newRatios);
+};
+
 const RecipeCalculator = ({ recipe }) => {
-  const [ratios, setRatios] = useState(Object.entries(recipe.ratios));
+  const [ratios, setRatios] = useState(recipe.ratios);
   const [base, setBase] = useState(recipe.base);
 
   if (!recipe.ratios) {
@@ -39,10 +47,22 @@ const RecipeCalculator = ({ recipe }) => {
           <span className="table-cell border-b">Percentage</span>
           <span className="table-cell pl-4 border-b">Weight</span>
         </li>
-        {ratios.map(([ingredient, ratio]) => (
+        {Object.entries(ratios).map(([ingredient, ratio]) => (
           <li key={ingredient} className="table-row">
             <span className="table-cell font-semibold">{ingredient}</span>
-            <span className="table-cell pl-4 text-right">{ratio} %</span>
+
+            {ingredient !== "Flour" ? (
+              <input
+                className="table-cell text-right w-20 bg-yellow-50 float-right"
+                type="number"
+                value={ratio}
+                onChange={(e) =>
+                  updateRatios(ratios, ingredient, e.target.value, setRatios)
+                }
+              />
+            ) : (
+              <span className="table-cell pl-4 text-right">{ratio} %</span>
+            )}
             {ingredient === "Flour" ? (
               <input
                 className="table-cell text-right w-20 bg-yellow-50 float-right"
