@@ -22,6 +22,13 @@ const Recipes = [
       "Day 2, Evening":
         "I normally bake in a dutch oven. Pre-heating the oven with the dutch-oven inside upto 250°C for 30 minutes. During that time you can let the loaf rest at room temperature, too. Bake the bread at 250°C for 30 minutes with the dutch-oven lid on, and another 15 minutes without the lid.",
     },
+    ratios: {
+      Flour: 100,
+      Water: 72,
+      Salt: 2.3,
+      Sourdough: 20,
+    },
+    base: 500,
   },
 ];
 

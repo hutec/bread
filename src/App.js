@@ -1,6 +1,6 @@
 import "./App.css";
 import Recipes from "./recipes";
-import React from "react";
+import React, { useState } from "react";
 import { HashRouter, Switch, Route, NavLink } from "react-router-dom";
 
 const Step = ({ title, description }) => {
@@ -19,6 +19,67 @@ const RecipeContent = ({ recipe }) => {
       {Object.entries(steps).map(([title, description]) => (
         <Step key={title} title={title} description={description} />
       ))}
+    </div>
+  );
+};
+
+const updateRatios = (ratios, ingredient, newRatio, setRatios) => {
+  const newRatios = {
+    ...ratios,
+    [ingredient]: newRatio,
+  };
+  setRatios(newRatios);
+};
+
+const RecipeCalculator = ({ recipe }) => {
+  const [ratios, setRatios] = useState(recipe.ratios);
+  const [base, setBase] = useState(recipe.base);
+
+  if (!recipe.ratios) {
+    return <></>;
+  }
+
+  return (
+    <div className="border shadow-md rounded-md w-1/2 min-w-max mx-auto p-2">
+      <ul className="table mt-2">
+        <li className="table-row">
+          <span className="table-cell border-b"></span>
+          <span className="table-cell border-b font-semibold">Percentage</span>
+          <span className="table-cell pl-4 border-b font-semibold">Weight</span>
+        </li>
+        {Object.entries(ratios).map(([ingredient, ratio]) => (
+          <li key={ingredient} className="table-row">
+            <span className="table-cell font-semibold text-right border-r pr-2">
+              {ingredient}
+            </span>
+
+            {ingredient !== "Flour" ? (
+              <input
+                className="table-cell text-right w-20 bg-yellow-50 float-right"
+                type="number"
+                value={ratio}
+                onChange={(e) =>
+                  updateRatios(ratios, ingredient, e.target.value, setRatios)
+                }
+              />
+            ) : (
+              <span className="table-cell pl-4 text-right">{ratio} %</span>
+            )}
+            {ingredient === "Flour" ? (
+              <input
+                className="table-cell text-right w-20 bg-yellow-50 float-right"
+                type="number"
+                value={base}
+                onChange={(e) => setBase(e.target.value)}
+              />
+            ) : (
+              <span className="table-cell pl-4 text-right">
+                {(base * (ratio / 100)).toFixed(0)}g
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
@@ -45,6 +106,7 @@ function App() {
           <Switch>
             {recipes.map((recipe) => (
               <Route key={recipe.url} path={"/" + recipe.url}>
+                <RecipeCalculator recipe={recipe} />
                 <RecipeContent recipe={recipe} />
               </Route>
             ))}
