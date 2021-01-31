@@ -44,12 +44,14 @@ const RecipeCalculator = ({ recipe }) => {
       <ul className="table mt-2">
         <li className="table-row">
           <span className="table-cell border-b"></span>
-          <span className="table-cell border-b">Percentage</span>
-          <span className="table-cell pl-4 border-b">Weight</span>
+          <span className="table-cell border-b font-semibold">Percentage</span>
+          <span className="table-cell pl-4 border-b font-semibold">Weight</span>
         </li>
         {Object.entries(ratios).map(([ingredient, ratio]) => (
           <li key={ingredient} className="table-row">
-            <span className="table-cell font-semibold">{ingredient}</span>
+            <span className="table-cell font-semibold text-right border-r pr-2">
+              {ingredient}
+            </span>
 
             {ingredient !== "Flour" ? (
               <input
