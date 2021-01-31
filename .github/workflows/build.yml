@@ -1,6 +1,6 @@
 name: build and publish
 
-on
+on:
   push:
     branches: [master, feature/actions]
 
