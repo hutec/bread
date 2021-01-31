@@ -1,6 +1,6 @@
 import "./App.css";
 import Recipes from "./recipes";
-import React from "react";
+import React, { useState } from "react";
 import { HashRouter, Switch, Route, NavLink } from "react-router-dom";
 
 const Step = ({ title, description }) => {
@@ -24,18 +24,18 @@ const RecipeContent = ({ recipe }) => {
 };
 
 const RecipeCalculator = ({ recipe }) => {
+  const [ratios, setRatios] = useState(Object.entries(recipe.ratios));
+  const [base, setBase] = useState(recipe.base);
+
   if (!recipe.ratios) {
     return <></>;
   }
-
-  const ratios = Object.entries(recipe.ratios);
-  const base = recipe.base;
 
   return (
     <div className="border shadow-md rounded-md w-1/2 mx-auto p-2">
       <ul className="table mt-2">
         <li className="table-row">
-          <td className="border-b"></td>
+          <span className="table-cell border-b"></span>
           <span className="table-cell border-b">Percentage</span>
           <span className="table-cell pl-4 border-b">Weight</span>
         </li>
@@ -43,9 +43,18 @@ const RecipeCalculator = ({ recipe }) => {
           <li key={ingredient} className="table-row">
             <span className="table-cell font-semibold">{ingredient}</span>
             <span className="table-cell pl-4 text-right">{ratio} %</span>
-            <span className="table-cell pl-4 text-right">
-              {(base * (ratio / 100)).toFixed(0)}g
-            </span>
+            {ingredient === "Flour" ? (
+              <input
+                className="table-cell text-right w-20 bg-yellow-50 float-right"
+                type="number"
+                value={base}
+                onChange={(e) => setBase(e.target.value)}
+              />
+            ) : (
+              <span className="table-cell pl-4 text-right">
+                {(base * (ratio / 100)).toFixed(0)}g
+              </span>
+            )}
           </li>
         ))}
       </ul>
