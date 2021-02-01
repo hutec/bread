@@ -40,8 +40,7 @@ const RecipeCalculator = ({ recipe }) => {
   }
 
   return (
-    <div className="border shadow-md rounded-md w-1/2 min-w-max mx-auto p-2">
-      <ul className="table mt-2">
+      <ul className="table w-60 shadow-md border rounded mx-auto p-2">
         <li className="table-row">
           <span className="table-cell border-b border-r"></span>
           <span className="table-cell pl-4 border-b font-semibold">Percentage</span>
@@ -55,7 +54,7 @@ const RecipeCalculator = ({ recipe }) => {
 
             {ingredient !== "Flour" ? (
               <input
-                className="table-cell text-right w-20 bg-yellow-50 float-right"
+                className="table-cell text-right w-full bg-yellow-50"
                 type="number"
                 value={ratio}
                 onChange={(e) =>
@@ -67,7 +66,7 @@ const RecipeCalculator = ({ recipe }) => {
             )}
             {ingredient === "Flour" ? (
               <input
-                className="table-cell text-right w-20 bg-yellow-50 float-right"
+                className="table-cell text-right w-full bg-yellow-50 right-0"
                 type="number"
                 value={base}
                 onChange={(e) => setBase(e.target.value)}
@@ -80,7 +79,6 @@ const RecipeCalculator = ({ recipe }) => {
           </li>
         ))}
       </ul>
-    </div>
   );
 };
 
