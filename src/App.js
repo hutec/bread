@@ -43,8 +43,8 @@ const RecipeCalculator = ({ recipe }) => {
     <div className="border shadow-md rounded-md w-1/2 min-w-max mx-auto p-2">
       <ul className="table mt-2">
         <li className="table-row">
-          <span className="table-cell border-b"></span>
-          <span className="table-cell border-b font-semibold">Percentage</span>
+          <span className="table-cell border-b border-r"></span>
+          <span className="table-cell pl-4 border-b font-semibold">Percentage</span>
           <span className="table-cell pl-4 border-b font-semibold">Weight</span>
         </li>
         {Object.entries(ratios).map(([ingredient, ratio]) => (
