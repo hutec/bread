@@ -40,11 +40,11 @@ const RecipeCalculator = ({ recipe }) => {
   }
 
   return (
-      <ul className="table w-60 shadow-md border rounded mx-auto p-2">
+      <ul className="table w-96 shadow-md border rounded mx-auto p-2">
         <li className="table-row">
           <span className="table-cell border-b border-r"></span>
-          <span className="table-cell pl-4 border-b font-semibold">Percentage</span>
-          <span className="table-cell pl-4 border-b font-semibold">Weight</span>
+          <span className="table-cell pl-3 border-b font-semibold text-right">Percentage | %</span>
+          <span className="table-cell pl-3 border-b font-semibold text-right">Weight | g</span>
         </li>
         {Object.entries(ratios).map(([ingredient, ratio]) => (
           <li key={ingredient} className="table-row">
@@ -62,7 +62,7 @@ const RecipeCalculator = ({ recipe }) => {
                 }
               />
             ) : (
-              <span className="table-cell pl-4 text-right">{ratio} %</span>
+              <span className="table-cell pl-4 text-right">{ratio}</span>
             )}
             {ingredient === "Flour" ? (
               <input
@@ -73,7 +73,7 @@ const RecipeCalculator = ({ recipe }) => {
               />
             ) : (
               <span className="table-cell pl-4 text-right">
-                {(base * (ratio / 100)).toFixed(0)}g
+                {(base * (ratio / 100)).toFixed(0)}
               </span>
             )}
           </li>
