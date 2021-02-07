@@ -1,7 +1,7 @@
 # About :bread: :pizza:
 
-This is repo contains the code for generating a page(https://hutec.github.io/bread) about bread & pizza recipes.
-Changes in the `main` branch are automatically deployed to the website: https://hutec.github.io/bread
+This is repo contains the code for generating a page about bread & pizza recipes.
+Changes in the `main` branch are automatically deployed to https://hutec.github.io/bread
 
 ## Development
 
