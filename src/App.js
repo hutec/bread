@@ -39,6 +39,11 @@ const RecipeCalculator = ({ recipe }) => {
     return <></>;
   }
 
+  const total =
+    Object.entries(ratios)
+      .map(([_, ratio]) => base * ratio)
+      .reduce((prev, curr) => prev + curr) / 100;
+
   return (
     <ul className="table w-96 shadow-md border rounded mx-auto p-2">
       <li className="table-row">
@@ -82,6 +87,13 @@ const RecipeCalculator = ({ recipe }) => {
           )}
         </li>
       ))}
+      <li className="table-row">
+        <span className="table-cell"></span>
+        <span className="table-cell"></span>
+        <span className="table-cell border-t italic text-right">
+          {total.toFixed(0)}
+        </span>
+      </li>
     </ul>
   );
 };
