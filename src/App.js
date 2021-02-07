@@ -40,45 +40,49 @@ const RecipeCalculator = ({ recipe }) => {
   }
 
   return (
-      <ul className="table w-96 shadow-md border rounded mx-auto p-2">
-        <li className="table-row">
-          <span className="table-cell border-b border-r"></span>
-          <span className="table-cell pl-3 border-b font-semibold text-right">Percentage | %</span>
-          <span className="table-cell pl-3 border-b font-semibold text-right">Weight | g</span>
-        </li>
-        {Object.entries(ratios).map(([ingredient, ratio]) => (
-          <li key={ingredient} className="table-row">
-            <span className="table-cell font-semibold text-right border-r pr-2">
-              {ingredient}
-            </span>
+    <ul className="table w-96 shadow-md border rounded mx-auto p-2">
+      <li className="table-row">
+        <span className="table-cell border-b border-r"></span>
+        <span className="table-cell pl-3 border-b font-semibold text-right">
+          Percentage | %
+        </span>
+        <span className="table-cell pl-3 border-b font-semibold text-right">
+          Weight | g
+        </span>
+      </li>
+      {Object.entries(ratios).map(([ingredient, ratio]) => (
+        <li key={ingredient} className="table-row">
+          <span className="table-cell font-semibold text-right border-r pr-2">
+            {ingredient}
+          </span>
 
-            {ingredient !== "Flour" ? (
-              <input
-                className="table-cell text-right w-full bg-yellow-50"
-                type="number"
-                value={ratio}
-                onChange={(e) =>
-                  updateRatios(ratios, ingredient, e.target.value, setRatios)
-                }
-              />
-            ) : (
-              <span className="table-cell pl-4 text-right">{ratio}</span>
-            )}
-            {ingredient === "Flour" ? (
-              <input
-                className="table-cell text-right w-full bg-yellow-50 right-0"
-                type="number"
-                value={base}
-                onChange={(e) => setBase(e.target.value)}
-              />
-            ) : (
-              <span className="table-cell pl-4 text-right">
-                {(base * (ratio / 100)).toFixed(0)}
-              </span>
-            )}
-          </li>
-        ))}
-      </ul>
+          {ingredient !== "Flour" ? (
+            <input
+              className="table-cell text-right w-full bg-yellow-50"
+              type="number"
+              value={ratio}
+              onChange={(e) =>
+                updateRatios(ratios, ingredient, e.target.value, setRatios)
+              }
+            />
+          ) : (
+            <span className="table-cell pl-4 text-right">{ratio}</span>
+          )}
+          {ingredient === "Flour" ? (
+            <input
+              className="table-cell text-right w-full bg-yellow-50 right-0"
+              type="number"
+              value={base}
+              onChange={(e) => setBase(e.target.value)}
+            />
+          ) : (
+            <span className="table-cell pl-4 text-right">
+              {(base * (ratio / 100)).toFixed(0)}
+            </span>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 };
 
