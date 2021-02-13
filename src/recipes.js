@@ -30,6 +30,20 @@ const Recipes = [
     },
     base: 500,
   },
+  {
+    title: "Brezel",
+    url: "brezel",
+    steps: {
+    },
+    ratios: {
+      Flour: 100,
+      Water: 50,
+      Butter: 10,
+      Salt: 2.3,
+      Sourdough: 20,
+    },
+    base: 250,
+  },
 ];
 
 export default Recipes;
