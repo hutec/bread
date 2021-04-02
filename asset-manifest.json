@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/bread/static/css/main.6a64efe2.chunk.css",
-    "main.js": "/bread/static/js/main.d289b1df.chunk.js",
-    "main.js.map": "/bread/static/js/main.d289b1df.chunk.js.map",
+    "main.css": "/bread/static/css/main.cc98c90b.chunk.css",
+    "main.js": "/bread/static/js/main.0d86caa8.chunk.js",
+    "main.js.map": "/bread/static/js/main.0d86caa8.chunk.js.map",
     "runtime-main.js": "/bread/static/js/runtime-main.7e5df2b0.js",
     "runtime-main.js.map": "/bread/static/js/runtime-main.7e5df2b0.js.map",
     "static/js/2.1125c5a2.chunk.js": "/bread/static/js/2.1125c5a2.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.62cfe37b.chunk.js": "/bread/static/js/3.62cfe37b.chunk.js",
     "static/js/3.62cfe37b.chunk.js.map": "/bread/static/js/3.62cfe37b.chunk.js.map",
     "index.html": "/bread/index.html",
-    "static/css/main.6a64efe2.chunk.css.map": "/bread/static/css/main.6a64efe2.chunk.css.map",
+    "static/css/main.cc98c90b.chunk.css.map": "/bread/static/css/main.cc98c90b.chunk.css.map",
     "static/js/2.1125c5a2.chunk.js.LICENSE.txt": "/bread/static/js/2.1125c5a2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.7e5df2b0.js",
     "static/js/2.1125c5a2.chunk.js",
-    "static/css/main.6a64efe2.chunk.css",
-    "static/js/main.d289b1df.chunk.js"
+    "static/css/main.cc98c90b.chunk.css",
+    "static/js/main.0d86caa8.chunk.js"
   ]
 }
