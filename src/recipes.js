@@ -43,6 +43,18 @@ const Recipes = [
     },
     base: 250,
   },
+  {
+    title: "Pizza",
+    url: "pizza",
+    steps: {},
+    ratios: {
+      Flour: 100,
+      Water: 62,
+      Salt: 3,
+      Sourdough: 20,
+    },
+    base: 500,
+  },
 ];
 
 export default Recipes;
