@@ -45,7 +45,7 @@ const RecipeCalculator = ({ recipe }) => {
       .reduce((prev, curr) => prev + curr) / 100;
 
   return (
-    <ul className="table w-96 shadow-md border rounded mx-auto p-2">
+    <ul className="table shadow-md border rounded mx-auto p-2">
       <li className="table-row">
         <span className="table-cell border-b border-r"></span>
         <span className="table-cell pl-3 border-b font-semibold text-right">
@@ -104,8 +104,8 @@ function App() {
     <HashRouter>
       <div className="bg-yellow-50 font-serif min-h-screen">
         <header className="bg-yellow-400 py-3">
-          <nav className="w-7/12 mx-auto">
-            <ul className="flex flex-row space-x-6 text-3xl">
+          <nav className="px-9 mx-auto">
+            <ul className="flex flex-row flex-wrap space-x-6 text-3xl">
               {recipes.map((recipe) => (
                 <li key={recipe.url}>
                   <NavLink activeClassName="font-bold" to={"/" + recipe.url}>
